@@ -1,4 +1,4 @@
-package by.ocheretny.brewnote.ui.theme
+package by.ocheretny.brewnote.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
