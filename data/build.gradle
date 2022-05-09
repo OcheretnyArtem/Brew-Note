@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -30,6 +32,16 @@ android {
 }
 
 dependencies {
+    //Hilt
+    implementation projectDependencies.hilt
+    kapt  projectDependencies.hilt_compiler
+    //Coroutines
+    implementation projectDependencies.coroutines
+    implementation projectDependencies.coroutines_play_services
+    //Room
+    implementation projectDependencies.room_runtime
+    implementation projectDependencies.room_ktx
+    kapt  projectDependencies.room_compiler
 
     implementation project(path: ':domain')
 

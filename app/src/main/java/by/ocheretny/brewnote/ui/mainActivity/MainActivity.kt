@@ -1,4 +1,4 @@
-package by.ocheretny.brewnote
+package by.ocheretny.brewnote.ui.mainActivity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import by.ocheretny.brewnote.ui.theme.BrewNoteTheme
+import by.ocheretny.brewnote.theme.BrewNoteTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

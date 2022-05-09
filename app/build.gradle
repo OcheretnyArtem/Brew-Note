@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -56,6 +58,12 @@ dependencies {
     debugImplementation projectDependencies.compose_tooling
     //Lifecycle
     implementation projectDependencies.lifecycle
+    //Hilt
+    implementation projectDependencies.hilt
+    kapt  projectDependencies.hilt_compiler
+    //Coroutines
+    implementation projectDependencies.coroutines
+    implementation projectDependencies.coroutines_play_services
     //Tests
     testImplementation projectDependencies.junit
     androidTestImplementation projectDependencies.androidx_junit

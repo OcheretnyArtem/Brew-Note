@@ -1,4 +1,4 @@
-package by.ocheretny.brewnote.ui.theme
+package by.ocheretny.brewnote.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
