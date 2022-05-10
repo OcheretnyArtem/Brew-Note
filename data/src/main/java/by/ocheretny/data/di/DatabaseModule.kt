@@ -8,8 +8,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.InternalCoroutinesApi
 import javax.inject.Singleton
 
+@InternalCoroutinesApi
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {

@@ -51,9 +51,7 @@ internal interface BrewNoteDao {
     @Transaction
     suspend fun delete(coffee: CoffeeWithProfiles) {
         coffee.profiles.forEach { profile ->
-            getProfileById(profile.id).collect {
-                delete(it)
-            }
+            delete(getProfileById(profile.id))
         }
         delete(coffee.coffee)
     }
@@ -65,9 +63,12 @@ internal interface BrewNoteDao {
     suspend fun update(profile: ProfileEntity)
 
     @Query("SELECT * FROM profile_table")
-    fun getAllProfiles(): Flow<List<ProfileEntity>>
+    fun getAllProfiles(): Flow<List<ProfileWithCoffeeAndInfusions>>
 
     @Query("SELECT * FROM profile_table WHERE id LIKE :id")
-    fun getProfileById(id: Int): Flow<ProfileWithCoffeeAndInfusions>
+    suspend fun getProfileById(id: Int): ProfileWithCoffeeAndInfusions
+
+    @Query("SELECT * FROM coffee_table WHERE id LIKE :coffeeId")
+    suspend fun getProfilesByCoffeeId(coffeeId: Int): CoffeeWithProfiles
 
 }
