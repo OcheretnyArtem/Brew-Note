@@ -8,7 +8,9 @@ import by.ocheretny.data.database.dao.BrewNoteDao
 import by.ocheretny.data.database.entity.CoffeeEntity
 import by.ocheretny.data.database.entity.InfusionEntity
 import by.ocheretny.data.database.entity.ProfileEntity
+import kotlinx.coroutines.InternalCoroutinesApi
 
+@InternalCoroutinesApi
 @Database(entities = [ProfileEntity::class, CoffeeEntity::class, InfusionEntity::class],
     version = 1)
 internal abstract class BrewNoteDatabase : RoomDatabase() {
