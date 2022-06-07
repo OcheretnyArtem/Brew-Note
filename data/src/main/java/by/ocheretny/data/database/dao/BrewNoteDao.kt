@@ -69,6 +69,8 @@ internal interface BrewNoteDao {
     suspend fun getProfileById(id: Int): ProfileWithCoffeeAndInfusions
 
     @Query("SELECT * FROM coffee_table WHERE id LIKE :coffeeId")
-    suspend fun getProfilesByCoffeeId(coffeeId: Int): CoffeeWithProfiles
+    suspend fun getCoffeeWithProfilesByCoffeeId(coffeeId: Int): CoffeeWithProfiles
 
+    @Query("SELECT * FROM coffee_table")
+    fun getAllCoffee() : Flow<List<CoffeeEntity>>
 }

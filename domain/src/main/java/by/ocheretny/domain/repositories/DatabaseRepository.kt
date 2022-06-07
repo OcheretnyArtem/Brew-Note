@@ -11,6 +11,8 @@ interface DatabaseRepository {
 
     suspend fun getAllProfiles() : Flow<List<Profile>>
 
+    suspend fun getAllCoffee() : Flow<List<Coffee>>
+
     suspend fun insert(profile: Profile)
 
     suspend fun insert(coffee: Coffee)

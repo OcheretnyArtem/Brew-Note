@@ -36,7 +36,7 @@ abstract class MappersModule {
             Mapper<InfusionEntity, Infusion>
 
     @Binds
-    internal abstract fun bindMapperCoffeeEntityToDomain(mapperCoffeeDomainToEntity: MapperCoffeeDomainToEntity):
+    internal abstract fun bindMapperCoffeeDomainToEntity(mapperCoffeeDomainToEntity: MapperCoffeeDomainToEntity):
             Mapper<Coffee, CoffeeEntity>
 
     @Binds
