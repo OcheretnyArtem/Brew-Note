@@ -21,9 +21,9 @@ import by.ocheretny.brewnote.ui.baseComposables.CoffeeItem
 import by.ocheretny.brewnote.ui.baseComposables.ErrorItem
 import by.ocheretny.brewnote.ui.baseComposables.LoadingItem
 import by.ocheretny.brewnote.ui.baseComposables.NoItemsItem
-import by.ocheretny.brewnote.ui.coffeeScreen.destinations.SomeScrenDestination
 import by.ocheretny.brewnote.ui.coffeeScreen.viewModel.CoffeeViewModel
 import by.ocheretny.brewnote.ui.coffeeScreen.viewModel.CoffeeViewState
+import by.ocheretny.brewnote.ui.destinations.SomeScrenDestination
 import by.ocheretny.domain.entity.Coffee
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -82,8 +82,8 @@ fun DisplayListOfCoffeeState(
             contentPadding = PaddingValues(16.dp, 16.dp, 16.dp, 16.dp),
             horizontalArrangement = Arrangement.Center,
             verticalArrangement = Arrangement.SpaceEvenly) {
-            items(items = list,) { coffee ->
-                CoffeeItem(coffee){
+            items(items = list) { coffee ->
+                CoffeeItem(coffee) {
                     onItemClick(it)
                 }
             }
@@ -92,7 +92,8 @@ fun DisplayListOfCoffeeState(
             onClick = onButtonClick,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
-                .padding(16.dp),
+                .padding(16.dp)
+                .padding(),
         ) {
             Icon(Icons.Default.Add, "")
         }
@@ -128,9 +129,9 @@ fun NoItemsListOfCoffeeState(onButtonClick: () -> Unit) {
 @Composable
 @Destination
 fun SomeScren(
-    coffee: Coffee
-    ) {
-    Box(modifier = Modifier.fillMaxSize()){
+    coffee: Coffee,
+) {
+    Box(modifier = Modifier.fillMaxSize()) {
         Column {
             Text(text = coffee.roastDate)
             Text(text = coffee.id.toString())
@@ -140,5 +141,6 @@ fun SomeScren(
             Text(text = coffee.brand)
         }
     }
-
 }
+
+

@@ -3,4 +3,7 @@
     <string name="no_internet_connection">No internet connection</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="there_is_nothing_to_show">There is nothing to show</string>
+    <string name="coffee">Coffee</string>
+    <string name="profile">Profile</string>
+    <string name="groups">Groups</string>
 </resources>

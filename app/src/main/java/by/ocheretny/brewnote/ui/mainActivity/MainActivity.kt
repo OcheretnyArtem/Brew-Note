@@ -3,27 +3,19 @@ package by.ocheretny.brewnote.ui.mainActivity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import by.ocheretny.brewnote.theme.BrewNoteTheme
-import by.ocheretny.brewnote.ui.coffeeScreen.CoffeeScreen
-import by.ocheretny.brewnote.ui.coffeeScreen.NavGraphs
-import by.ocheretny.domain.repositories.DatabaseRepository
+import by.ocheretny.brewnote.ui.NavGraphs
+import by.ocheretny.brewnote.ui.botomNavigation.BottomBar
 import com.ramcosta.composedestinations.DestinationsNavHost
-import com.ramcosta.composedestinations.spec.NavGraphSpec
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
@@ -33,25 +25,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BrewNoteTheme {
-                // A surface container using the 'background' color from the theme
-                Surface {
-                   DestinationsNavHost(navGraph = NavGraphs.root)
-//                    CoffeeScreen()
-                }
+                val navController = rememberNavController()
+                Scaffold(
+                    topBar = {
+
+                    },
+                    bottomBar = {
+                        BottomBar(navController)
+                    },
+                    content = { paddingValues ->
+                        Box(modifier = Modifier.padding(paddingValues)) {
+                            DestinationsNavHost(navGraph = NavGraphs.root,
+                                navController = navController)
+                        }
+                    })
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = name)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    BrewNoteTheme {
-        Greeting("Brew Note")
     }
 }
