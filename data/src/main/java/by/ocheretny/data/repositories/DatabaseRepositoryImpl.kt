@@ -13,6 +13,7 @@ import by.ocheretny.domain.repositories.DatabaseRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -21,6 +22,7 @@ import javax.inject.Inject
 internal class DatabaseRepositoryImpl @Inject constructor(
     private val dao: BrewNoteDao,
     private val entityProfileToDomainMapper: Mapper<ProfileWithCoffeeAndInfusions, Profile>,
+    private val entityCoffeeToDomainMapper: Mapper<CoffeeEntity, Coffee>,
     private val mapperCoffeeDomainToEntity: Mapper<Coffee, CoffeeEntity>,
     private val mapperInfusionDomainToEntity: Mapper<Infusion, InfusionEntity>,
     private val mapperProfileDomainToEntity: Mapper<Profile, ProfileEntity>,
@@ -35,7 +37,13 @@ internal class DatabaseRepositoryImpl @Inject constructor(
         return@map it.map { profile ->
             entityProfileToDomainMapper.map(profile)
         }
-    }
+    }.flowOn(dispatchers)
+
+    override suspend fun getAllCoffee(): Flow<List<Coffee>> = dao.getAllCoffee().map {
+        return@map it.map { coffee ->
+            entityCoffeeToDomainMapper.map(coffee)
+        }
+    }.flowOn(dispatchers)
 
     override suspend fun insert(profile: Profile) = withContext(dispatchers) {
         dao.insert(mapperProfileDomainToEntity.map(profile))
@@ -56,11 +64,10 @@ internal class DatabaseRepositoryImpl @Inject constructor(
     }
 
     override suspend fun delete(coffee: Coffee) = withContext(dispatchers) {
-        dao.delete(dao.getProfilesByCoffeeId(coffee.id!!))
+        dao.delete(dao.getCoffeeWithProfilesByCoffeeId(coffee.id!!))
     }
 
     override suspend fun delete(profile: Profile) = withContext(dispatchers) {
         dao.delete(dao.getProfileById(profile.coffee.id!!))
     }
-
 }
