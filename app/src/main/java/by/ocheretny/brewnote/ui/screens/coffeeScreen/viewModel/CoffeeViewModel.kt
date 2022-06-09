@@ -1,12 +1,10 @@
-package by.ocheretny.brewnote.ui.coffeeScreen.viewModel
+package by.ocheretny.brewnote.ui.screens.coffeeScreen.viewModel
 
 import by.ocheretny.brewnote.base.viewModel.BaseViewModel
 import by.ocheretny.brewnote.exceptions.ExceptionParser
 import by.ocheretny.domain.entity.Coffee
 import by.ocheretny.domain.repositories.DatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.TimeoutCancellationException
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 

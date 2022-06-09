@@ -9,9 +9,9 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.ui.graphics.vector.ImageVector
 import by.ocheretny.brewnote.R
-import by.ocheretny.brewnote.ui.destinations.CoffeeScreenDestination
-import by.ocheretny.brewnote.ui.destinations.GroupScreenDestination
-import by.ocheretny.brewnote.ui.destinations.ProfileScreenDestination
+import by.ocheretny.brewnote.ui.screens.destinations.CoffeeScreenDestination
+import by.ocheretny.brewnote.ui.screens.destinations.GroupScreenDestination
+import by.ocheretny.brewnote.ui.screens.destinations.ProfileScreenDestination
 import com.ramcosta.composedestinations.spec.DirectionDestinationSpec
 
 @ExperimentalMaterialApi

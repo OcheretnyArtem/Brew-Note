@@ -1,8 +1,7 @@
-package by.ocheretny.brewnote.ui.groupScreen
+package by.ocheretny.brewnote.ui.screens.profileScreen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.magnifier
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,12 +11,10 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
 @Destination
-fun GroupScreen(
+fun ProfileScreen(
     navigator: DestinationsNavigator,
 ) {
-    Box() {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text(text = "GroupScreen")
-        }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Text(text = "ProfileScreen")
     }
 }

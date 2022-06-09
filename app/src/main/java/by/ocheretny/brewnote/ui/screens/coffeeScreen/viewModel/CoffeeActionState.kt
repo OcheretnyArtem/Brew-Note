@@ -1,4 +1,4 @@
-package by.ocheretny.brewnote.ui.coffeeScreen.viewModel
+package by.ocheretny.brewnote.ui.screens.coffeeScreen.viewModel
 
 import by.ocheretny.brewnote.base.viewModel.ActionState
 
