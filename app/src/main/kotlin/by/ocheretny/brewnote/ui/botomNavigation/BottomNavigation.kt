@@ -14,8 +14,10 @@ import by.ocheretny.brewnote.ui.screens.NavGraphs
 import by.ocheretny.brewnote.ui.screens.appCurrentDestinationAsState
 import com.ramcosta.composedestinations.navigation.navigate
 import com.ramcosta.composedestinations.utils.startDestination
+import kotlinx.coroutines.InternalCoroutinesApi
 
 
+@InternalCoroutinesApi
 @ExperimentalMaterialApi
 @ExperimentalFoundationApi
 @Composable
