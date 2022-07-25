@@ -5,9 +5,9 @@ buildscript {
 }
 
 plugins {
-    id("com.android.application") version "7.1.1" apply false
-    id("com.android.library") version "7.1.1" apply false
-    id("org.jetbrains.kotlin.android") version "1.6.10" apply false
+    id("com.android.application") version PublicVersions.gradlePlugin apply false
+    id("com.android.library") version PublicVersions.gradlePlugin apply false
+    id("org.jetbrains.kotlin.android") version PublicVersions.kotlin apply false
 }
 
 tasks.register("clean", Delete::class) {
