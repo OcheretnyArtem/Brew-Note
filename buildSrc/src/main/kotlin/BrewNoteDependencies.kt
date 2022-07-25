@@ -3,14 +3,14 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 object BrewNoteDependencies {
 
     //Core
-    private const val androidxCore = "androidx.core:core-ktx:${Versions.androidx_core}"
+    private const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
 
     //Compose
     private const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
     private const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
     private const val composePreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
     private const val composeActivity =
-        "androidx.activity:activity-compose:${Versions.compose_activity}"
+        "androidx.activity:activity-compose:${Versions.composeActivity}"
     private const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
 
     //Lifecycle
@@ -22,13 +22,13 @@ object BrewNoteDependencies {
     private const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
     private const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
     private const val hiltNavigationCompose =
-        "androidx.hilt:hilt-navigation-compose:${Versions.hilt_navigation_compose}"
+        "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
 
     //Compose destinations
     private const val composeDestinationsCore =
-        "io.github.raamcosta.compose-destinations:animations-core:${Versions.compose_destinations}"
+        "io.github.raamcosta.compose-destinations:animations-core:${Versions.composeDestinations}"
     private const val composeDestinationsKsp =
-        "io.github.raamcosta.compose-destinations:ksp:${Versions.compose_destinations}"
+        "io.github.raamcosta.compose-destinations:ksp:${Versions.composeDestinations}"
 
     //Coroutines
     private const val coroutines =
@@ -46,9 +46,9 @@ object BrewNoteDependencies {
 
     //Tests
     private const val junit = "junit:junit:${Versions.junit}"
-    private const val androidxJunit = "androidx.test.ext:junit:${Versions.androidx_junit}"
+    private const val androidxJunit = "androidx.test.ext:junit:${Versions.androidxJunit}"
     private const val espressoCore =
-        "androidx.test.espresso:espresso-core:${Versions.espresso_core}"
+        "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     private const val composeTests = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
 
     fun coroutines(handler: DependencyHandler) = handler.apply {

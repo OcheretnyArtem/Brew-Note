@@ -62,12 +62,15 @@ internal interface BrewNoteDao {
     @Update
     suspend fun update(profile: ProfileEntity)
 
+    @Transaction
     @Query("SELECT * FROM profile_table")
     fun getAllProfiles(): Flow<List<ProfileWithCoffeeAndInfusions>>
 
+    @Transaction
     @Query("SELECT * FROM profile_table WHERE id LIKE :id")
     suspend fun getProfileById(id: Int): ProfileWithCoffeeAndInfusions
 
+    @Transaction
     @Query("SELECT * FROM coffee_table WHERE id LIKE :coffeeId")
     suspend fun getCoffeeWithProfilesByCoffeeId(coffeeId: Int): CoffeeWithProfiles
 
