@@ -13,6 +13,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Brew Note"
-include ':app'
-include ':data'
-include ':domain'
+include(
+    ":app",
+    ":data",
+    ":domain"
+) 

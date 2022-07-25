@@ -35,12 +35,14 @@ import by.ocheretny.brewnote.ui.screens.coffeeScreen.viewModel.CoffeeViewState
 import by.ocheretny.brewnote.ui.screens.destinations.SomeScrenDestination
 import by.ocheretny.domain.entity.Coffee
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
 @Composable
-@Destination(start = true)
+@Destination
+@RootNavGraph(start = true)
 fun CoffeeScreen(
     viewModel: CoffeeViewModel = hiltViewModel(),
     navigator: DestinationsNavigator,
@@ -70,11 +72,11 @@ fun CoffeeScreen(
         CoffeeViewState.NoItems -> {
             NoItemsListOfCoffeeState(
                 onButtonClick = {
+                    viewModel.onAddButtonClick()
                 }
             )
         }
     }
-
 }
 
 @ExperimentalMaterialApi
