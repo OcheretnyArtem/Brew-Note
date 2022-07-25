@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 internal data class InfusionEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
-    val profileId: String,
+    val profileId: Int,
     val startSecond: Int,
     val endSecond: Int,
     val waitingTime: Int,
