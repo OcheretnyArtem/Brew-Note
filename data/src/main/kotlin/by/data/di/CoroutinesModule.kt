@@ -1,16 +1,17 @@
 package by.data.di
 
+import by.data.coroutines.DispatcherProviderImpl
+import by.domain.coroutines.DispatcherProvider
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 
 @Module
 @InstallIn(SingletonComponent::class)
-object CoroutinesModule {
+abstract class CoroutinesModule {
 
-    @Provides
-    fun provideCoroutineDispatcher(): CoroutineDispatcher = Dispatchers.IO
+    @Binds
+    abstract fun provideCoroutineDispatcher(dispatcherProvider: DispatcherProviderImpl): DispatcherProvider
 }
+
