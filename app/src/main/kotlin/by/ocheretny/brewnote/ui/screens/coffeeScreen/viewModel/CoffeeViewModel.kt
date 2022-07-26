@@ -6,20 +6,23 @@ import by.domain.entity.Coffee
 import by.domain.repositories.DatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.forEach
 import javax.inject.Inject
 
 @InternalCoroutinesApi
 @HiltViewModel
 class CoffeeViewModel @Inject constructor(
-    private val DBRepo: DatabaseRepository,
+    private val dBRepo: DatabaseRepository,
     private val exceptionParser: ExceptionParser,
-) : BaseViewModel<CoffeeViewState, CoffeeActionState>() {
+) : BaseViewModel<CoffeeViewState, CoffeeActions>() {
 
     override fun initViewState(): CoffeeViewState = CoffeeViewState.Loading
 
     init {
         safeLaunch {
-            DBRepo.getAllCoffee().collect { coffee ->
+            dBRepo.getAllCoffee().collect { coffee ->
                 if (coffee.isEmpty()) {
                     reduceState {
                         CoffeeViewState.NoItems
@@ -41,7 +44,7 @@ class CoffeeViewModel @Inject constructor(
 
     fun onAddButtonClick() {
         safeLaunch {
-            DBRepo.insert(Coffee(
+            dBRepo.insert(Coffee(
                 country = "Indonesia",
                 region = "Java",
                 variety = "Tipika",
