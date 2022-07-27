@@ -1,8 +1,8 @@
 package by.domain.repositories
 
-import by.domain.entity.Coffee
-import by.domain.entity.Infusion
-import by.domain.entity.Profile
+import by.domain.entities.Coffee
+import by.domain.entities.Infusion
+import by.domain.entities.Profile
 import kotlinx.coroutines.flow.Flow
 
 interface DatabaseRepository {

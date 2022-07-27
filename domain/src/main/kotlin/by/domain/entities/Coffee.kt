@@ -1,9 +1,5 @@
-package by.domain.entity
+package by.domain.entities
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
 data class Coffee(
     var id: Int? = null,
     val country: String,
@@ -14,4 +10,4 @@ data class Coffee(
     val brand: String,
     val description: String? = null,
     val roastDate: String,
-) : Parcelable
+)

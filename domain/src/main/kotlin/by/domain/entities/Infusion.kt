@@ -1,4 +1,4 @@
-package by.domain.entity
+package by.domain.entities
 
 data class Infusion(
     var id: Int? = null,

@@ -5,9 +5,9 @@ import by.data.database.entity.InfusionEntity
 import by.data.database.relations.ProfileWithCoffeeAndInfusions
 import by.data.parsres.Mapper
 import by.data.parsres.Parser
-import by.domain.entity.Coffee
-import by.domain.entity.Infusion
-import by.domain.entity.Profile
+import by.domain.entities.Coffee
+import by.domain.entities.Infusion
+import by.domain.entities.Profile
 import javax.inject.Inject
 
 internal class MapperProfileEntityToDomain @Inject constructor(

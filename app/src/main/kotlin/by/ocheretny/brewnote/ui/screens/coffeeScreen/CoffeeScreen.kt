@@ -33,7 +33,8 @@ import by.ocheretny.brewnote.ui.baseComposables.NoItemsItem
 import by.ocheretny.brewnote.ui.screens.coffeeScreen.viewModel.CoffeeViewModel
 import by.ocheretny.brewnote.ui.screens.coffeeScreen.viewModel.CoffeeViewState
 import by.ocheretny.brewnote.ui.screens.destinations.SomeScrenDestination
-import by.domain.entity.Coffee
+import by.domain.entities.Coffee
+import by.ocheretny.brewnote.entities.CoffeeUI
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -85,9 +86,9 @@ fun CoffeeScreen(
 @ExperimentalFoundationApi
 @Composable
 fun DisplayListOfCoffeeState(
-    list: List<Coffee>,
+    list: List<CoffeeUI>,
     onButtonClick: () -> Unit,
-    onItemClick: (Coffee) -> Unit,
+    onItemClick: (CoffeeUI) -> Unit,
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         LazyVerticalGrid(cells = GridCells.Fixed(2),
@@ -141,7 +142,7 @@ fun NoItemsListOfCoffeeState(onButtonClick: () -> Unit) {
 @Composable
 @Destination
 fun SomeScren(
-    coffee: Coffee,
+    coffee: CoffeeUI,
     navigator: DestinationsNavigator,
 ) {
     Box(

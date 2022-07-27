@@ -10,9 +10,9 @@ import by.data.parsres.domain.MapperProfileDomainToEntity
 import by.data.parsres.domain.MapperProfileEntityToDomain
 import by.data.parsres.domain.ParserCoffeeDomainEntity
 import by.data.parsres.domain.ParserInfusionDomainEntity
-import by.domain.entity.Coffee
-import by.domain.entity.Infusion
-import by.domain.entity.Profile
+import by.domain.entities.Coffee
+import by.domain.entities.Infusion
+import by.domain.entities.Profile
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

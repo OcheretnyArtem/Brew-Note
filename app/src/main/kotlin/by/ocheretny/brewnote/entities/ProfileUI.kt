@@ -1,9 +1,13 @@
-package by.domain.entity
+package by.ocheretny.brewnote.entities
 
-data class Profile(
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class ProfileUI(
     var id: Int? = null,
-    val coffee: Coffee,
-    val infusions: List<Infusion> = emptyList(),
+    val coffee: CoffeeUI,
+    val infusions: List<InfusionUI> = emptyList(),
     val device: String,
     val totalTime: Double,
     val totalWaterWeight: Double,
@@ -15,4 +19,4 @@ data class Profile(
     var brewedCoffeeWeight: Double? = null,
     var tds: Double? = null,
     var extraction: Double? = null,
-)
+) : Parcelable
