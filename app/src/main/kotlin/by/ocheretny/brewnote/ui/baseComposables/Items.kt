@@ -22,11 +22,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import by.ocheretny.brewnote.R
 import by.ocheretny.brewnote.theme.White
-import by.domain.entity.Coffee
+import by.ocheretny.brewnote.entities.CoffeeUI
 
 @ExperimentalMaterialApi
 @Composable
-fun CoffeeItem(coffee: Coffee, onClick: (Coffee) -> Unit) {
+fun CoffeeItem(coffee: CoffeeUI, onClick: (CoffeeUI) -> Unit) {
     Card(
         modifier = Modifier
             .height(200.dp)

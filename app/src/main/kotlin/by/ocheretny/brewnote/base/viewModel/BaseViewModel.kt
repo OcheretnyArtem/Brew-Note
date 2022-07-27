@@ -13,15 +13,15 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseViewModel<VS : ViewState, AS : ActionState> : ViewModel(), CoroutineScope {
+abstract class BaseViewModel<VS : ViewState, A : Actions> : ViewModel(), CoroutineScope {
 
     protected abstract fun initViewState(): VS
 
     private val _viewState = MutableStateFlow(initViewState())
     val viewState: StateFlow<VS> = _viewState
 
-    private val actionChannel = Channel<AS>(Channel.BUFFERED)
-    val actionFlow: Flow<AS> get() = actionChannel.receiveAsFlow()
+    private val actionChannel = Channel<A>(Channel.BUFFERED)
+    val actionFlow: Flow<A> get() = actionChannel.receiveAsFlow()
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         Timber.d(throwable)

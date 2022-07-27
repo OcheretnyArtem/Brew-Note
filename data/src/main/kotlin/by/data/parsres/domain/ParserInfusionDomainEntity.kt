@@ -2,7 +2,7 @@ package by.data.parsres.domain
 
 import by.data.database.entity.InfusionEntity
 import by.data.parsres.Parser
-import by.domain.entity.Infusion
+import by.domain.entities.Infusion
 import javax.inject.Inject
 
 internal class ParserInfusionDomainEntity @Inject constructor() : Parser<Infusion, InfusionEntity> {

@@ -6,7 +6,7 @@ internal object Versions {
     const val lifecycle = "2.4.1"
     const val hilt = "2.42"
     const val hiltNavigationCompose = "1.0.0"
-    const val coroutines = "1.5.2"
+    const val coroutines = "1.6.4"
     const val room = "2.4.2"
     const val timber = "5.0.1"
     const val composeDestinations = "1.5.9-beta"

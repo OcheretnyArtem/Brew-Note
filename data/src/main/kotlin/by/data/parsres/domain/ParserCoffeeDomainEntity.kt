@@ -2,7 +2,7 @@ package by.data.parsres.domain
 
 import by.data.database.entity.CoffeeEntity
 import by.data.parsres.Parser
-import by.domain.entity.Coffee
+import by.domain.entities.Coffee
 import javax.inject.Inject
 
 internal class ParserCoffeeDomainEntity @Inject constructor() : Parser<Coffee, CoffeeEntity> {
