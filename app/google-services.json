@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1024937958291",
+    "project_id": "brew-note-f7534",
+    "storage_bucket": "brew-note-f7534.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024937958291:android:a9799c42c9273d74272666",
+        "android_client_info": {
+          "package_name": "by.ocheretny.brewnote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024937958291-2csm7jcbt05u9etkm71bmokg5rr4mqer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBlOPv07oaf03o8hFJ994yB8KDqDRvEfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024937958291-2csm7jcbt05u9etkm71bmokg5rr4mqer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 package by.ocheretny.brewnote.ui.screens.coffeeScreen.viewModel
 
 import by.data.parsres.Mapper
+import by.data.remote.TestFireStore
 import by.ocheretny.brewnote.base.viewModel.BaseViewModel
 import by.ocheretny.brewnote.exceptions.ExceptionParser
 import by.domain.entities.Coffee
@@ -16,6 +17,7 @@ class CoffeeViewModel @Inject constructor(
     private val dBRepo: DatabaseRepository,
     private val exceptionParser: ExceptionParser,
     private val coffeeMapper: Mapper<Coffee, CoffeeUI>,
+    private val testFireStore: TestFireStore
 ) : BaseViewModel<CoffeeViewState, CoffeeActions>() {
 
     override fun initViewState(): CoffeeViewState = CoffeeViewState.Loading
@@ -46,14 +48,15 @@ class CoffeeViewModel @Inject constructor(
 
     fun onAddButtonClick() {
         safeLaunch {
-            dBRepo.insert(Coffee(
-                country = "Indonesia",
-                region = "Java",
-                variety = "Tipika",
-                processing = "Washed",
-                brand = "KCR",
-                roastDate = "21.02.22"
-            ))
+            testFireStore.test()
+//            dBRepo.insert(Coffee(
+//                country = "Indonesia",
+//                region = "Java",
+//                variety = "Tipika",
+//                processing = "Washed",
+//                brand = "KCR",
+//                roastDate = "21.02.22"
+//            ))
         }
     }
 }

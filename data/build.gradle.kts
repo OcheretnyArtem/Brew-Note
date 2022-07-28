@@ -37,5 +37,8 @@ dependencies {
     BrewNoteDependencies.coroutines(this)
     BrewNoteDependencies.room(this)
 
+    implementation("com.google.firebase:firebase-firestore-ktx:24.2.1")
+
+
     BrewNoteModules.domain(this)
 }

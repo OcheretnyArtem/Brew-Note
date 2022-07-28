@@ -5,6 +5,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("com.google.devtools.ksp") version PublicVersions.ksp
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -61,6 +62,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-firestore:24.2.1")
     BrewNoteDependencies.androidxCore(this)
     BrewNoteDependencies.compose(this)
     BrewNoteDependencies.lifecycle(this)
