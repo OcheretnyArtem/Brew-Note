@@ -13,4 +13,5 @@ internal object Versions {
     const val junit = "4.13.2"
     const val androidxJunit = "1.1.3"
     const val espressoCore = "3.4.0"
+    const val fireStore = "24.2.1"
 }

@@ -51,6 +51,9 @@ object BrewNoteDependencies {
         "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     private const val composeTests = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
 
+    //FireStore
+    private const val fireStore = "com.google.firebase:firebase-firestore-ktx:${Versions.fireStore}"
+
     fun coroutines(handler: DependencyHandler) = handler.apply {
         implementation(coroutines)
         implementation(coroutinesPlayServices)
@@ -98,5 +101,9 @@ object BrewNoteDependencies {
     fun composeDestinations(handler: DependencyHandler) = handler.apply {
         implementation(composeDestinationsCore)
         ksp(composeDestinationsKsp)
+    }
+
+    fun fireStore(handler: DependencyHandler) = handler.apply {
+        implementation(fireStore)
     }
 }

@@ -62,7 +62,6 @@ android {
 }
 
 dependencies {
-    implementation("com.google.firebase:firebase-firestore:24.2.1")
     BrewNoteDependencies.androidxCore(this)
     BrewNoteDependencies.compose(this)
     BrewNoteDependencies.lifecycle(this)
