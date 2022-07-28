@@ -75,6 +75,9 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
+#Google-services
+app/google-services.json
+
 # Version control
 vcs.xml
 

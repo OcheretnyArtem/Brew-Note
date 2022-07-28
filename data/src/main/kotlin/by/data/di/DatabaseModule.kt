@@ -3,6 +3,7 @@ package by.data.di
 import android.content.Context
 import by.data.database.BrewNoteDatabase
 import by.data.database.dao.BrewNoteDao
+import by.data.remote.TestFireStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,11 +19,11 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    internal fun provideDatabase(@ApplicationContext context: Context) : BrewNoteDatabase =
+    internal fun provideDatabase(@ApplicationContext context: Context): BrewNoteDatabase =
         BrewNoteDatabase.getBrewNoteDatabase(context)
 
     @Singleton
     @Provides
-    internal fun provideBrewNoteDao(database: BrewNoteDatabase) : BrewNoteDao =
+    internal fun provideBrewNoteDao(database: BrewNoteDatabase): BrewNoteDao =
         database.getBrewNoteDao()
 }
