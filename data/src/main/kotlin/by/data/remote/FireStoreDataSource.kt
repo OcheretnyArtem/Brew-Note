@@ -1,6 +1,6 @@
 package by.data.remote
 
-import by.data.remote.entities.User
+import by.data.remote.entities.UserRemote
 import by.data.remote.utils.observeFromFireStore
 import by.domain.coroutines.DispatcherProvider
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,7 +18,7 @@ internal class FireStoreDataSource @Inject constructor(
     private val dispatchers: DispatcherProvider,
 ) : RemoteService {
 
-    override suspend fun getUsersByName(s: String): Flow<List<User>> = observeFromFireStore(
+    override suspend fun getUsersByName(s: String): Flow<List<UserRemote>> = observeFromFireStore(
         dbRef = fireStore.collection(USERS),
         coroutineContext = dispatchers.io,
         keySearchQuery = "name",

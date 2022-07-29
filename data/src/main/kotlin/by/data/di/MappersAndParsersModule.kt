@@ -6,10 +6,10 @@ import by.data.database.entity.ProfileEntity
 import by.data.database.relations.ProfileWithCoffeeAndInfusions
 import by.data.parsres.Mapper
 import by.data.parsres.Parser
-import by.data.parsres.domain.MapperProfileDomainToEntity
-import by.data.parsres.domain.MapperProfileEntityToDomain
-import by.data.parsres.domain.ParserCoffeeDomainEntity
-import by.data.parsres.domain.ParserInfusionDomainEntity
+import by.data.parsres.localData.MapperProfileDomainToEntity
+import by.data.parsres.localData.MapperProfileEntityToDomain
+import by.data.parsres.localData.ParserCoffeeDomainEntity
+import by.data.parsres.localData.ParserInfusionDomainEntity
 import by.domain.entities.Coffee
 import by.domain.entities.Infusion
 import by.domain.entities.Profile

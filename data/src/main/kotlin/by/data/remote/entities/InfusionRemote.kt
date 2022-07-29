@@ -2,7 +2,7 @@ package by.data.remote.entities
 
 import by.data.remote.utils.RemoteData
 
-data class Infusion(
+internal data class InfusionRemote(
     var id: Int? = null,
     var profileId: Int? = null,
     var startSecond: Int? = null,

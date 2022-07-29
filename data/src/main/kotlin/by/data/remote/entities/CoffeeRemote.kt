@@ -2,7 +2,7 @@ package by.data.remote.entities
 
 import by.data.remote.utils.RemoteData
 
-data class Coffee(
+internal data class CoffeeRemote(
     var id: Int? = null,
     var country: String? = null,
     var region: String? = null,
