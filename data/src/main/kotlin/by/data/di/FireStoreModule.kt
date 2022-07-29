@@ -1,7 +1,7 @@
 package by.data.di
 
-import by.data.remoteData.FireStoreDataSource
-import by.data.remoteData.RemoteService
+import by.data.remote.FireStoreDataSource
+import by.data.remote.RemoteService
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

@@ -1,5 +1,6 @@
-package by.data.remoteData
+package by.data.remote
 
+import by.data.remote.entities.RemoteData
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.QuerySnapshot

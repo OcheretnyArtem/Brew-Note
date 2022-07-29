@@ -1,6 +1,6 @@
 package by.ocheretny.brewnote.ui.screens.groupScreen.viewModel
 
-import by.data.remoteData.RemoteService
+import by.data.remote.RemoteService
 import by.ocheretny.brewnote.base.viewModel.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

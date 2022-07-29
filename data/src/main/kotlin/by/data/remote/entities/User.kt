@@ -1,6 +1,4 @@
-package by.data.remote
-
-import by.data.remoteData.RemoteData
+package by.data.remote.entities
 
 data class User(
     var name: String? = null,

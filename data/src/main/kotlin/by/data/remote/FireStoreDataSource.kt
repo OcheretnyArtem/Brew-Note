@@ -1,6 +1,6 @@
-package by.data.remoteData
+package by.data.remote
 
-import by.data.remote.User
+import by.data.remote.entities.User
 import by.domain.coroutines.DispatcherProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.Flow
