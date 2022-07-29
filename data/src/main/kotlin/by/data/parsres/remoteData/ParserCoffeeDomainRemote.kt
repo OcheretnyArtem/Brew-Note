@@ -3,8 +3,9 @@ package by.data.parsres.remoteData
 import by.data.parsres.Parser
 import by.data.remote.entities.CoffeeRemote
 import by.domain.entities.Coffee
+import javax.inject.Inject
 
-internal class ParserCoffeeDomainRemote : Parser<Coffee, CoffeeRemote> {
+internal class ParserCoffeeDomainRemote @Inject constructor() : Parser<Coffee, CoffeeRemote> {
 
     override fun pars(from: CoffeeRemote): Coffee = Coffee(
         id = from.id,
