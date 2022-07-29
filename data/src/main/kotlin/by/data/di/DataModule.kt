@@ -1,7 +1,7 @@
 package by.data.di
 
-import by.data.repositories.DatabaseRepositoryImpl
-import by.domain.repositories.DatabaseRepository
+import by.data.dataSorse.LocalDataSourceImpl
+import by.domain.repositories.LocalDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,6 +16,6 @@ abstract class DataModule {
 
     @Singleton
     @Binds
-    internal abstract fun bindBrewNoteRepository(databaseRepositoryImpl: DatabaseRepositoryImpl):
-            DatabaseRepository
+    internal abstract fun bindBrewNoteRepository(databaseRepositoryImpl: LocalDataSourceImpl):
+            LocalDataSource
 }
