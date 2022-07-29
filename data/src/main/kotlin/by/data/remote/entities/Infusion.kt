@@ -1,11 +1,13 @@
 package by.data.remote.entities
 
+import by.data.remote.utils.RemoteData
+
 data class Infusion(
     var id: Int? = null,
-    val profileId: Int? = null,
-    val startSecond: Int? = null,
-    val endSecond: Int? = null,
-    val waitingTime: Int? = null,
-    val countOfWater: Int? = null,
-    val isMixed: Boolean? = null,
+    var profileId: Int? = null,
+    var startSecond: Int? = null,
+    var endSecond: Int? = null,
+    var waitingTime: Int? = null,
+    var countOfWater: Int? = null,
+    var isMixed: Boolean? = null,
 ) : RemoteData

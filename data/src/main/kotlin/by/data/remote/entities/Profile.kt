@@ -1,15 +1,17 @@
 package by.data.remote.entities
 
+import by.data.remote.utils.RemoteData
+
 data class Profile(
     var id: Int? = null,
-    val coffeeId: Int? = null,
-    val device: String? = null,
-    val totalTime: Double? = null,
-    val totalWaterWeight: Double? = null,
-    val waterTemperature: Double? = null,
-    val dryCoffeeWeight: Double? = null,
-    val grinderName: String? = null,
-    val grinderSetting: Double? = null,
+    var coffeeId: Int? = null,
+    var device: String? = null,
+    var totalTime: Double? = null,
+    var totalWaterWeight: Double? = null,
+    var waterTemperature: Double? = null,
+    var dryCoffeeWeight: Double? = null,
+    var grinderName: String? = null,
+    var grinderSetting: Double? = null,
     var description: String? = null,
     var brewedCoffeeWeight: Double? = null,
     var tds: Double? = null,

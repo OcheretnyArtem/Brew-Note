@@ -1,13 +1,15 @@
 package by.data.remote.entities
 
+import by.data.remote.utils.RemoteData
+
 data class Coffee(
     var id: Int? = null,
-    val country: String? = null,
-    val region: String? = null,
-    val variety: String? = null,
-    val processing: String? = null,
-    val photo: String? = null,
-    val brand: String? = null,
-    val description: String? = null,
-    val roastDate: String? = null,
+    var country: String? = null,
+    var region: String? = null,
+    var variety: String? = null,
+    var processing: String? = null,
+    var photo: String? = null,
+    var brand: String? = null,
+    var description: String? = null,
+    var roastDate: String? = null,
 ) : RemoteData
