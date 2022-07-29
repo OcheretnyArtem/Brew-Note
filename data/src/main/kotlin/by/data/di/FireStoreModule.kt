@@ -1,6 +1,6 @@
 package by.data.di
 
-import by.data.remoteData.FireStore
+import by.data.remoteData.FireStoreDataSource
 import by.data.remoteData.RemoteService
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -29,5 +29,5 @@ abstract class FireStoreModuleAbstract{
 
     @Binds
     @ViewModelScoped
-    internal abstract fun bindRemoteService(fireStore: FireStore): RemoteService
+    internal abstract fun bindRemoteService(fireStore: FireStoreDataSource): RemoteService
 }
