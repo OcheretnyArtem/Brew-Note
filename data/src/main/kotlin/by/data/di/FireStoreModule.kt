@@ -1,9 +1,11 @@
 package by.data.di
 
-import by.data.remote.TestFireStore
+import by.data.remote.FireStoreDataSource
+import by.data.remote.RemoteService
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,9 +21,13 @@ object FireStoreModule {
     internal fun provideTestFireStore(): FirebaseFirestore =
         Firebase.firestore
 
-    @Provides
-    @ViewModelScoped
-    internal fun provideFirebaseFirestore(firebaseFirestore: FirebaseFirestore): TestFireStore =
-        TestFireStore(firebaseFirestore)
+}
 
+@Module
+@InstallIn(ViewModelComponent::class)
+abstract class FireStoreModuleAbstract{
+
+    @Binds
+    @ViewModelScoped
+    internal abstract fun bindRemoteService(fireStore: FireStoreDataSource): RemoteService
 }

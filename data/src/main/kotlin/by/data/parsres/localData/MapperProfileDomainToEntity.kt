@@ -1,4 +1,4 @@
-package by.data.parsres.domain
+package by.data.parsres.localData
 
 import by.data.database.entity.ProfileEntity
 import by.data.parsres.Mapper

@@ -36,7 +36,7 @@ dependencies {
     BrewNoteDependencies.hilt(this)
     BrewNoteDependencies.coroutines(this)
     BrewNoteDependencies.room(this)
-
+    BrewNoteDependencies.fireStore(this)
     implementation("com.google.firebase:firebase-firestore-ktx:24.2.1")
 
 
