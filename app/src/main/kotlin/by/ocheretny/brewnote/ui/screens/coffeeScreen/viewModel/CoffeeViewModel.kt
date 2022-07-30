@@ -4,7 +4,7 @@ import by.data.parsres.Mapper
 import by.ocheretny.brewnote.base.viewModel.BaseViewModel
 import by.ocheretny.brewnote.exceptions.ExceptionParser
 import by.domain.entities.Coffee
-import by.domain.repositories.DatabaseRepository
+import by.domain.repositories.LocalDataSource
 import by.ocheretny.brewnote.entities.CoffeeUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -13,7 +13,7 @@ import javax.inject.Inject
 @InternalCoroutinesApi
 @HiltViewModel
 class CoffeeViewModel @Inject constructor(
-    private val dBRepo: DatabaseRepository,
+    private val dBRepo: LocalDataSource,
     private val exceptionParser: ExceptionParser,
     private val coffeeMapper: Mapper<Coffee, CoffeeUI>,
 ) : BaseViewModel<CoffeeViewState, CoffeeActions>() {

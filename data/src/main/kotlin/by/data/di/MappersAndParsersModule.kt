@@ -11,12 +11,18 @@ import by.data.parsres.localData.MapperProfileEntityToDomain
 import by.data.parsres.localData.ParserCoffeeDomainEntity
 import by.data.parsres.localData.ParserInfusionDomainEntity
 import by.data.parsres.remoteData.ParserCoffeeDomainRemote
+import by.data.parsres.remoteData.ParserGroupDomainRemote
 import by.data.parsres.remoteData.ParserInfusionDomainRemote
+import by.data.parsres.remoteData.ParserUserDomainRemote
 import by.data.remote.entities.CoffeeRemote
+import by.data.remote.entities.GroupRemote
 import by.data.remote.entities.InfusionRemote
+import by.data.remote.entities.UserRemote
 import by.domain.entities.Coffee
+import by.domain.entities.Group
 import by.domain.entities.Infusion
 import by.domain.entities.Profile
+import by.domain.entities.User
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -56,5 +62,15 @@ abstract class MappersAndParsersModule {
     @Singleton
     internal abstract fun bindParserInfusionDomainRemote(parserInfusionDomainRemote: ParserInfusionDomainRemote):
             Parser<Infusion, InfusionRemote>
+
+    @Binds
+    @Singleton
+    internal abstract fun bindParserGroupDomainRemote(parserGroupDomainRemote: ParserGroupDomainRemote):
+            Parser<Group, GroupRemote>
+
+    @Binds
+    @Singleton
+    internal abstract fun bindParserUserDomainRemote(parserUserDomainRemote: ParserUserDomainRemote):
+            Parser<User, UserRemote>
 
 }

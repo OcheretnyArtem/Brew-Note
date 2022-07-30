@@ -4,7 +4,8 @@ import by.data.remote.utils.RemoteData
 
 internal data class ProfileRemote(
     var id: Int? = null,
-    var coffeeId: Int? = null,
+    var coffee: CoffeeRemote? = null,
+    var infusions: List<InfusionRemote>? = null,
     var device: String? = null,
     var totalTime: Double? = null,
     var totalWaterWeight: Double? = null,

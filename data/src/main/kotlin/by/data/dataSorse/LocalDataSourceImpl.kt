@@ -1,4 +1,4 @@
-package by.data.repositories
+package by.data.dataSorse
 
 import by.data.database.dao.BrewNoteDao
 import by.data.database.entity.CoffeeEntity
@@ -11,7 +11,7 @@ import by.domain.coroutines.DispatcherProvider
 import by.domain.entities.Coffee
 import by.domain.entities.Infusion
 import by.domain.entities.Profile
-import by.domain.repositories.DatabaseRepository
+import by.domain.repositories.LocalDataSource
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -20,14 +20,14 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @InternalCoroutinesApi
-internal class DatabaseRepositoryImpl @Inject constructor(
+internal class LocalDataSourceImpl @Inject constructor(
     private val dao: BrewNoteDao,
     private val mapperProfileEntityToDomain: Mapper<ProfileWithCoffeeAndInfusions, Profile>,
     private val mapperProfileDomainToEntity: Mapper<Profile, ProfileEntity>,
     private val parserCoffeeDomainEntity: Parser<Coffee, CoffeeEntity>,
     private val parserInfusionDomainEntity: Parser<Infusion, InfusionEntity>,
     private val dispatchers: DispatcherProvider,
-) : DatabaseRepository {
+) : LocalDataSource {
 
     override suspend fun getProfileById(id: Int): Profile = withContext(dispatchers.io) {
         mapperProfileEntityToDomain.map(dao.getProfileById(id))

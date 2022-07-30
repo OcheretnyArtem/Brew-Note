@@ -5,7 +5,7 @@ import by.domain.entities.Infusion
 import by.domain.entities.Profile
 import kotlinx.coroutines.flow.Flow
 
-interface DatabaseRepository {
+interface LocalDataSource {
 
     suspend fun getProfileById(id: Int): Profile
 
