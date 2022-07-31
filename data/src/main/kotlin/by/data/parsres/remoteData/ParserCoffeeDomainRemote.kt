@@ -8,7 +8,6 @@ import javax.inject.Inject
 internal class ParserCoffeeDomainRemote @Inject constructor() : Parser<Coffee, CoffeeRemote> {
 
     override fun pars(from: CoffeeRemote): Coffee = Coffee(
-        id = from.id,
         country = from.country.orEmpty(),
         region = from.region.orEmpty(),
         variety = from.variety.orEmpty(),
@@ -20,7 +19,6 @@ internal class ParserCoffeeDomainRemote @Inject constructor() : Parser<Coffee, C
     )
 
     override fun unPars(from: Coffee): CoffeeRemote = CoffeeRemote(
-        id = from.id,
         country = from.country,
         region = from.region,
         variety = from.variety,

@@ -9,7 +9,7 @@ internal class MapperInfusionDomainToUI @Inject constructor() : Mapper<Infusion,
 
     override fun map(from: Infusion): InfusionUI = InfusionUI(
         id = from.id,
-        profileId = from.profileId,
+        profileId = from.profileId!!,
         endSecond = from.endSecond,
         startSecond = from.startSecond,
         waitingTime = from.waitingTime,

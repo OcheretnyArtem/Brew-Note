@@ -2,7 +2,7 @@ package by.domain.entities
 
 data class Infusion(
     var id: Int? = null,
-    val profileId: Int,
+    var profileId: Int? = null,
     val startSecond: Int,
     val endSecond: Int,
     val waitingTime: Int,

@@ -10,7 +10,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -34,17 +38,29 @@ fun GroupScreen(
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Users(viewState.users)
         }
+        FloatingActionButton(
+            onClick = {
+                viewModel.onButtonClick()
+            },
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(16.dp)
+                .padding(),
+        ) {
+            Icon(Icons.Default.Add, "")
+        }
     }
 }
 
 @Composable
 fun Users(users: List<User>) {
     LazyColumn(content = {
-        items(users){ user ->
+        items(users) { user ->
             UserItem(user = user)
         }
     })
 }
+
 @Composable
 fun UserItem(user: User) {
     Card(
@@ -55,7 +71,7 @@ fun UserItem(user: User) {
         shape = RoundedCornerShape(15.dp),
         elevation = 5.dp,
 
-        ){
+        ) {
         Column {
             Text(text = user.name)
             Text(text = user.photoURL)

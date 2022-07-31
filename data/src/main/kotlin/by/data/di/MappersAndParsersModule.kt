@@ -13,10 +13,12 @@ import by.data.parsres.localData.ParserInfusionDomainEntity
 import by.data.parsres.remoteData.ParserCoffeeDomainRemote
 import by.data.parsres.remoteData.ParserGroupDomainRemote
 import by.data.parsres.remoteData.ParserInfusionDomainRemote
+import by.data.parsres.remoteData.ParserProfileDomainRemote
 import by.data.parsres.remoteData.ParserUserDomainRemote
 import by.data.remote.entities.CoffeeRemote
 import by.data.remote.entities.GroupRemote
 import by.data.remote.entities.InfusionRemote
+import by.data.remote.entities.ProfileRemote
 import by.data.remote.entities.UserRemote
 import by.domain.entities.Coffee
 import by.domain.entities.Group
@@ -72,5 +74,10 @@ abstract class MappersAndParsersModule {
     @Singleton
     internal abstract fun bindParserUserDomainRemote(parserUserDomainRemote: ParserUserDomainRemote):
             Parser<User, UserRemote>
+
+    @Binds
+    @Singleton
+    internal abstract fun bindParserProfileDomainRemote(parserProfileDomainRemote: ParserProfileDomainRemote):
+            Parser<Profile, ProfileRemote>
 
 }
