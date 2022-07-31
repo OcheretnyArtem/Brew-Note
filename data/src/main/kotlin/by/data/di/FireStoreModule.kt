@@ -1,13 +1,8 @@
 package by.data.di
 
-import by.data.dataSources.RemoteDataSourceImpl
-import by.data.remote.RemoteServiceImpl
-import by.data.remote.RemoteService
-import by.domain.dataSoures.RemoteDataSource
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,18 +17,4 @@ object FireStoreModule {
     @ViewModelScoped
     internal fun provideTestFireStore(): FirebaseFirestore =
         Firebase.firestore
-
-}
-
-@Module
-@InstallIn(ViewModelComponent::class)
-abstract class FireStoreModuleAbstract{
-
-    @Binds
-    @ViewModelScoped
-    internal abstract fun bindRemoteService(fireStore: RemoteServiceImpl): RemoteService
-
-    @Binds
-    @ViewModelScoped
-    internal abstract fun bindRemoteDataSourceImpl(fireStore: RemoteDataSourceImpl): RemoteDataSource
 }
