@@ -7,14 +7,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GroupViewModel @Inject constructor(
-    private val db : RemoteDataSource
+    private val db: RemoteDataSource,
 ) : BaseViewModel<GroupViewState, GroupActions>() {
 
     override fun initViewState(): GroupViewState = GroupViewState()
 
     init {
         safeLaunch {
-            db.getUsersByName("artsiom").collect{ list ->
+            db.getUsersByName("artsiom").collect { list ->
                 reduceState {
                     it.copy(users = list)
                 }

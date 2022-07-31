@@ -1,5 +1,6 @@
 package by.data.remote
 
+import by.data.remote.entities.ProfileRemote
 import by.data.remote.entities.UserRemote
 import by.data.remote.utils.observeItemsFromFireStore
 import by.domain.coroutines.DispatcherProvider
@@ -24,5 +25,20 @@ internal class RemoteServiceImpl @Inject constructor(
         keySearchQuery = "name",
         valueSearchQuery = name
     )
+
+    override suspend fun getProfilesFromGroup(groupID: String): Flow<List<ProfileRemote>> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getProfileFromGroup(
+        groupID: String,
+        profileID: String,
+    ): Flow<ProfileRemote> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun postProfileInGroup(groupID: String, profile: ProfileRemote) {
+        fireStore.collection(GROUPS).document(groupID).collection(PROFILES).add(profile)
+    }
 
 }
