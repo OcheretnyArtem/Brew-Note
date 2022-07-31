@@ -1,4 +1,4 @@
-package by.domain.repositories
+package by.domain.dataSoures
 
 import by.domain.entities.Coffee
 import by.domain.entities.Infusion

@@ -13,7 +13,7 @@ private const val PROFILES = "profiles"
 private const val COFFEE = "coffee"
 private const val INFUSIONS = "infusions"
 
-internal class FireStoreDataSource @Inject constructor(
+internal class RemoteServiceImpl @Inject constructor(
     private val fireStore: FirebaseFirestore,
     private val dispatchers: DispatcherProvider,
 ) : RemoteService {

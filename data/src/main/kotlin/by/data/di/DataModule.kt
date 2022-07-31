@@ -1,7 +1,7 @@
 package by.data.di
 
-import by.data.dataSorse.LocalDataSourceImpl
-import by.domain.repositories.LocalDataSource
+import by.data.dataSources.LocalDataSourceImpl
+import by.domain.dataSoures.LocalDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

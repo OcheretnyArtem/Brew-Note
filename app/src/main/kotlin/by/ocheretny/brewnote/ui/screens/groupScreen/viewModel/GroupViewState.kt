@@ -1,8 +1,8 @@
 package by.ocheretny.brewnote.ui.screens.groupScreen.viewModel
 
-import by.data.remote.entities.UserRemote
+import by.domain.entities.User
 import by.ocheretny.brewnote.base.viewModel.ViewState
 
 data class GroupViewState(
-    val users: List<UserRemote> = emptyList()
+    val users: List<User> = emptyList()
 ) : ViewState

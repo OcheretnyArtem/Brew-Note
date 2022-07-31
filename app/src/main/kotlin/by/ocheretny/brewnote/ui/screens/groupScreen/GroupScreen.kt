@@ -18,7 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import by.data.remote.entities.UserRemote
+import by.domain.entities.User
 import by.ocheretny.brewnote.ui.screens.groupScreen.viewModel.GroupViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -38,7 +38,7 @@ fun GroupScreen(
 }
 
 @Composable
-fun Users(users: List<UserRemote>) {
+fun Users(users: List<User>) {
     LazyColumn(content = {
         items(users){ user ->
             UserItem(user = user)
@@ -46,7 +46,7 @@ fun Users(users: List<UserRemote>) {
     })
 }
 @Composable
-fun UserItem(user: UserRemote) {
+fun UserItem(user: User) {
     Card(
         modifier = Modifier
             .height(200.dp)
@@ -57,8 +57,8 @@ fun UserItem(user: UserRemote) {
 
         ){
         Column {
-            Text(text = user.name.toString())
-            Text(text = user.photoURL.toString())
+            Text(text = user.name)
+            Text(text = user.photoURL)
         }
     }
 

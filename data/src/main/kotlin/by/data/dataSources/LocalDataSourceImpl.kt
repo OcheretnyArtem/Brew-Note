@@ -1,4 +1,4 @@
-package by.data.dataSorse
+package by.data.dataSources
 
 import by.data.database.dao.BrewNoteDao
 import by.data.database.entity.CoffeeEntity
@@ -11,7 +11,7 @@ import by.domain.coroutines.DispatcherProvider
 import by.domain.entities.Coffee
 import by.domain.entities.Infusion
 import by.domain.entities.Profile
-import by.domain.repositories.LocalDataSource
+import by.domain.dataSoures.LocalDataSource
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
