@@ -4,7 +4,7 @@ import by.data.parsres.Mapper
 import by.ocheretny.brewnote.base.viewModel.BaseViewModel
 import by.ocheretny.brewnote.exceptions.ExceptionParser
 import by.domain.entities.Coffee
-import by.domain.repositories.LocalDataSource
+import by.domain.dataSoures.LocalDataSource
 import by.ocheretny.brewnote.entities.CoffeeUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.InternalCoroutinesApi
