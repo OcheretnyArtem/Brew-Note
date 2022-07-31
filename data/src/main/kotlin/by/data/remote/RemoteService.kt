@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 internal interface RemoteService {
 
-   suspend fun getUsersByName(s: String) : Flow<List<UserRemote>>
+   suspend fun getUsersByName(name: String) : Flow<List<UserRemote>>
 }
