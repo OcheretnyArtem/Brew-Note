@@ -8,8 +8,6 @@ import javax.inject.Inject
 internal class ParserInfusionDomainRemote @Inject constructor() : Parser<Infusion, InfusionRemote> {
 
     override fun pars(from: InfusionRemote): Infusion = Infusion(
-        id = from.id,
-        profileId = from.profileId ?: 0,
         startSecond = from.startSecond ?: 0,
         endSecond = from.endSecond ?: 0,
         waitingTime = from.waitingTime ?: 0,
@@ -18,8 +16,6 @@ internal class ParserInfusionDomainRemote @Inject constructor() : Parser<Infusio
     )
 
     override fun unPars(from: Infusion): InfusionRemote = InfusionRemote(
-        id = from.id,
-        profileId = from.profileId,
         startSecond = from.startSecond,
         endSecond = from.endSecond,
         waitingTime = from.waitingTime,

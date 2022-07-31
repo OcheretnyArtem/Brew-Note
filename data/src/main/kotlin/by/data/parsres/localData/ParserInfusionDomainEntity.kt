@@ -18,7 +18,7 @@ internal class ParserInfusionDomainEntity @Inject constructor() : Parser<Infusio
     )
 
     override fun unPars(from: Infusion): InfusionEntity = InfusionEntity(
-        profileId = from.profileId,
+        profileId = from.profileId!!,
         startSecond = from.startSecond,
         endSecond = from.endSecond,
         waitingTime = from.waitingTime,
