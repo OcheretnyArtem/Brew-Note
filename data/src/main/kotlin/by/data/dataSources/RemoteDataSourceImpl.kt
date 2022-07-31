@@ -25,4 +25,9 @@ internal class RemoteDataSourceImpl @Inject constructor(
     override suspend fun postProfileInGroup(groupID: String, profile: Profile) =
         service.postProfileInGroup(groupID, profileParser.unPars(profile))
 
+    override suspend fun getUsersByIDs(iDs: List<String>): Flow<List<User>> =
+        service.getUsersByIDs(iDs).map { list ->
+            list.map { user -> userParser.pars(user) }
+        }
+
 }

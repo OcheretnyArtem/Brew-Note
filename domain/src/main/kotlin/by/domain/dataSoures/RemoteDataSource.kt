@@ -10,4 +10,6 @@ interface RemoteDataSource {
 
     suspend fun postProfileInGroup(groupID: String, profile: Profile)
 
+    suspend fun getUsersByIDs(iDs: List<String>) : Flow<List<User>>
+
 }

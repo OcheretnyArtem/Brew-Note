@@ -8,6 +8,7 @@ import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flowOn
@@ -23,7 +24,7 @@ internal inline fun <reified T : RemoteData> observeItemsFromFireStore(
     val listener =
         EventListener<QuerySnapshot> { value, _ ->
             value?.toObjects<T>()?.let {
-                this@callbackFlow.trySend(it)
+                this@callbackFlow.trySendBlocking(it)
             }
         }
     if (keySearchQuery != null && valueSearchQuery != null) {

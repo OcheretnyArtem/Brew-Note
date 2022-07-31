@@ -13,5 +13,8 @@ internal interface RemoteService {
 
     suspend fun getProfileFromGroup(groupID: String, profileID: String): Flow<ProfileRemote>
 
+    suspend fun getUsersByIDs(iDs: List<String>) : Flow<List<UserRemote>>
+
     suspend fun postProfileInGroup(groupID: String, profile: ProfileRemote)
+
 }
