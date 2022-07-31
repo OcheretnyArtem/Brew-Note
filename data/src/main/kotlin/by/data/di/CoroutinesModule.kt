@@ -14,4 +14,3 @@ abstract class CoroutinesModule {
     @Binds
     abstract fun provideCoroutineDispatcher(dispatcherProvider: DispatcherProviderImpl): DispatcherProvider
 }
-

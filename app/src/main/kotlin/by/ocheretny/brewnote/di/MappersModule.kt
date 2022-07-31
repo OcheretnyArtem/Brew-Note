@@ -13,21 +13,25 @@ import by.ocheretny.brewnote.mappers.MapperProfileDomainToUI
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 abstract class MappersModule {
 
     @Binds
-    internal abstract fun bindMapperCoffeeDomainToUI
-                (mapperCoffeeDomainToUI: MapperCoffeeDomainToUI): Mapper<Coffee, CoffeeUI>
+    @ViewModelScoped
+    internal abstract fun bindMapperCoffeeDomainToUI(mapperCoffeeDomainToUI: MapperCoffeeDomainToUI):
+            Mapper<Coffee, CoffeeUI>
 
     @Binds
-    internal abstract fun bindMapperInfusionDomainToUI
-                (mapperInfusionDomainToUI: MapperInfusionDomainToUI): Mapper<Infusion, InfusionUI>
+    @ViewModelScoped
+    internal abstract fun bindMapperInfusionDomainToUI(mapperInfusionDomainToUI: MapperInfusionDomainToUI):
+            Mapper<Infusion, InfusionUI>
 
     @Binds
-    internal abstract fun bindMapperProfileDomainToUI
-                (mapperProfileDomainToUI: MapperProfileDomainToUI): Mapper<Profile, ProfileUI>
+    @ViewModelScoped
+    internal abstract fun bindMapperProfileDomainToUI(mapperProfileDomainToUI: MapperProfileDomainToUI):
+            Mapper<Profile, ProfileUI>
 }
