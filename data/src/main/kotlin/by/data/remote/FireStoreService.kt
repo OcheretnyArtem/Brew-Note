@@ -4,6 +4,7 @@ import by.data.remote.entities.ProfileRemote
 import by.data.remote.entities.UserRemote
 import by.data.remote.utils.observeItemsFromFireStore
 import by.domain.coroutines.DispatcherProvider
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.awaitAll
@@ -15,6 +16,9 @@ import javax.inject.Inject
 private const val USERS = "users"
 private const val GROUPS = "groups"
 private const val PROFILES = "profiles"
+private const val GROUP_IDS = "groupIDs"
+private const val USER_IDS = "userIDs"
+private const val ID = "id"
 
 internal class RemoteServiceImpl @Inject constructor(
     private val fireStore: FirebaseFirestore,
@@ -56,6 +60,18 @@ internal class RemoteServiceImpl @Inject constructor(
 
     override suspend fun postProfileInGroup(groupID: String, profile: ProfileRemote) {
         fireStore.collection(GROUPS).document(groupID).collection(PROFILES).add(profile)
+    }
+
+    override suspend fun addUserInGroup(groupID: String, user: UserRemote) {
+            val users = fireStore.collection(USERS)
+            val group = fireStore.collection(GROUPS).document(groupID)
+        fireStore.runBatch {
+            users.add(user).addOnSuccessListener {
+                it.update(ID, it.id)
+                group.update(USER_IDS, FieldValue.arrayUnion(it.id))
+                fireStore.collection(USERS).document(it.id).update(GROUP_IDS, FieldValue.arrayUnion(groupID))
+            }
+        }
     }
 
 }

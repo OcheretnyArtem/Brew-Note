@@ -8,6 +8,7 @@ import javax.inject.Inject
 internal class ParserUserDomainRemote @Inject constructor() : Parser<User, UserRemote> {
 
     override fun pars(from: UserRemote): User = User(
+        id = from.id,
         name = from.name.orEmpty(),
         photoURL = from.photoURL.orEmpty(),
         groupIDs = from.groupIDs ?: emptyList()
