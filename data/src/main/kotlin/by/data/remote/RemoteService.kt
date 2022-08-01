@@ -17,6 +17,8 @@ internal interface RemoteService {
 
     suspend fun postProfileInGroup(groupID: String, profile: ProfileRemote)
 
+    suspend fun  deleteProfileFromGroup(groupID: String,  profileID: String)
+
     suspend fun createUser(user: UserRemote)
 
     suspend fun addUserInGroup(groupID: String, userID: String)

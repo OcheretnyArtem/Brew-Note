@@ -70,6 +70,10 @@ internal class RemoteServiceImpl @Inject constructor(
             }
         }
 
+    override suspend fun deleteProfileFromGroup(groupID: String, profileID: String) {
+        fireStore.collection(GROUPS).document(groupID).collection(PROFILES).document(profileID).delete()
+    }
+
     override suspend fun createUser(user: UserRemote): Unit = withContext(dispatchers.io) {
         fireStore.collection(USERS).add(user).addOnSuccessListener {
             it.update(ID, it.id)
