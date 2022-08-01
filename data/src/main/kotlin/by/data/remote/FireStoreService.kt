@@ -68,13 +68,11 @@ internal class RemoteServiceImpl @Inject constructor(
         }
     }
 
-    override suspend fun addUserInGroup(groupID: String, user: UserRemote) {
-        val users = fireStore.collection(USERS)
+    override suspend fun addUserInGroup(groupID: String, userID: String) {
         val group = fireStore.collection(GROUPS).document(groupID)
-        users.add(user).addOnSuccessListener {
-            it.update(ID, it.id)
-            group.update(USER_IDS, FieldValue.arrayUnion(it.id))
-            fireStore.collection(USERS).document(it.id)
+
+        group.update(USER_IDS, FieldValue.arrayUnion(userID)).addOnSuccessListener {
+            fireStore.collection(USERS).document(userID)
                 .update(GROUP_IDS, FieldValue.arrayUnion(groupID))
         }
     }

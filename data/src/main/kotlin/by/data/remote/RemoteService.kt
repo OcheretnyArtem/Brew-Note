@@ -19,6 +19,6 @@ internal interface RemoteService {
 
     suspend fun createUser(user: UserRemote)
 
-    suspend fun addUserInGroup(groupID: String, user: UserRemote)
+    suspend fun addUserInGroup(groupID: String, userID: String)
 
 }
