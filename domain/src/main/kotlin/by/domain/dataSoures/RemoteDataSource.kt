@@ -12,4 +12,8 @@ interface RemoteDataSource {
 
     suspend fun getUsersByIDs(iDs: List<String>) : Flow<List<User>>
 
+    suspend fun createUser(user: User)
+
+    suspend fun addUserInGroup(groupID: String, userID: String)
+
 }
