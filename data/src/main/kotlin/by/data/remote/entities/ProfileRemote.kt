@@ -3,6 +3,7 @@ package by.data.remote.entities
 import by.data.remote.utils.RemoteData
 
 internal data class ProfileRemote(
+    var id: String? = null,
     var coffee: CoffeeRemote? = null,
     var infusions: List<InfusionRemote>? = null,
     var device: String? = null,

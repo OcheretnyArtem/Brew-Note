@@ -2,6 +2,7 @@ package by.data.remote
 
 import by.data.remote.entities.ProfileRemote
 import by.data.remote.entities.UserRemote
+import by.data.remote.utils.observeItemFromFireStore
 import by.data.remote.utils.observeItemsFromFireStore
 import by.domain.coroutines.DispatcherProvider
 import com.google.firebase.firestore.FieldValue
@@ -34,16 +35,18 @@ internal class RemoteServiceImpl @Inject constructor(
             valueSearchQuery = name
         )
 
-    override suspend fun getProfilesFromGroup(groupID: String): Flow<List<ProfileRemote>> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getProfilesFromGroup(groupID: String): Flow<List<ProfileRemote>> = observeItemsFromFireStore(
+        fireStore.collection(GROUPS).document(groupID).collection(PROFILES),
+        dispatchers.io
+    )
 
     override suspend fun getProfileFromGroup(
         groupID: String,
         profileID: String,
-    ): Flow<ProfileRemote> {
-        TODO("Not yet implemented")
-    }
+    ): Flow<ProfileRemote> = observeItemFromFireStore(
+        fireStore.collection(GROUPS).document(groupID).collection(PROFILES).document(profileID),
+        dispatchers.io
+    )
 
     override suspend fun getUsersByIDs(iDs: List<String>): Flow<List<UserRemote>> {
         val calls = iDs.map { id ->
@@ -61,7 +64,10 @@ internal class RemoteServiceImpl @Inject constructor(
 
     override suspend fun postProfileInGroup(groupID: String, profile: ProfileRemote): Unit =
         withContext(dispatchers.io) {
-            fireStore.collection(GROUPS).document(groupID).collection(PROFILES).add(profile)
+            fireStore.collection(GROUPS).document(groupID).collection(PROFILES)
+                .add(profile).addOnSuccessListener { profile ->
+                profile.update(ID,profile.id)
+            }
         }
 
     override suspend fun createUser(user: UserRemote): Unit = withContext(dispatchers.io) {
