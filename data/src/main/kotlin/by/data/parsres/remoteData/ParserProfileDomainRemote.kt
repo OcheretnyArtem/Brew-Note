@@ -15,6 +15,7 @@ internal class ParserProfileDomainRemote @Inject constructor(
 ) : Parser<Profile, ProfileRemote> {
 
     override fun pars(from: ProfileRemote): Profile = Profile(
+        remoteId = from.id,
         coffee = coffeeParser.pars(from.coffee!!),
         infusions = from.infusions?.map { infusionParser.pars(it) } ?: emptyList(),
         device = from.device.orEmpty(),

@@ -35,4 +35,7 @@ internal class RemoteDataSourceImpl @Inject constructor(
     override suspend fun addUserInGroup(groupID: String, userID: String) =
         service.addUserInGroup(groupID, userID)
 
+    override suspend fun deleteUserFromGroup(groupID: String, userID: String) =
+        service.deleteUserFromGroup(groupID, userID)
+
 }
