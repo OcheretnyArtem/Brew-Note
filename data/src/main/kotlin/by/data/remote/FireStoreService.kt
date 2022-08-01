@@ -11,6 +11,7 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.tasks.asDeferred
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 private const val USERS = "users"
@@ -58,23 +59,35 @@ internal class RemoteServiceImpl @Inject constructor(
         return flowOf(list)
     }
 
-    override suspend fun postProfileInGroup(groupID: String, profile: ProfileRemote) {
-        fireStore.collection(GROUPS).document(groupID).collection(PROFILES).add(profile)
-    }
+    override suspend fun postProfileInGroup(groupID: String, profile: ProfileRemote): Unit =
+        withContext(dispatchers.io) {
+            fireStore.collection(GROUPS).document(groupID).collection(PROFILES).add(profile)
+        }
 
-    override suspend fun createUser(user: UserRemote) {
+    override suspend fun createUser(user: UserRemote): Unit = withContext(dispatchers.io) {
         fireStore.collection(USERS).add(user).addOnSuccessListener {
             it.update(ID, it.id)
         }
     }
 
-    override suspend fun addUserInGroup(groupID: String, userID: String) {
-        val group = fireStore.collection(GROUPS).document(groupID)
+    override suspend fun addUserInGroup(groupID: String, userID: String): Unit =
+        withContext(dispatchers.io) {
+            val group = fireStore.collection(GROUPS).document(groupID)
 
-        group.update(USER_IDS, FieldValue.arrayUnion(userID)).addOnSuccessListener {
-            fireStore.collection(USERS).document(userID)
-                .update(GROUP_IDS, FieldValue.arrayUnion(groupID))
+            group.update(USER_IDS, FieldValue.arrayUnion(userID)).addOnSuccessListener {
+                fireStore.collection(USERS).document(userID)
+                    .update(GROUP_IDS, FieldValue.arrayUnion(groupID))
+            }
         }
-    }
+
+    override suspend fun deleteUserFromGroup(groupID: String, userID: String): Unit =
+        withContext(dispatchers.io) {
+            fireStore.collection(GROUPS).document(groupID).update(
+                USER_IDS, FieldValue.arrayRemove(userID)
+            )
+            fireStore.collection(USERS).document(userID).update(
+                GROUP_IDS, FieldValue.arrayRemove(groupID)
+            )
+        }
 
 }

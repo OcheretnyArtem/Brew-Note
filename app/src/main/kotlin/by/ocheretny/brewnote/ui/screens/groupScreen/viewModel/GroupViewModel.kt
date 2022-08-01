@@ -14,6 +14,6 @@ class GroupViewModel @Inject constructor(
 
     fun onButtonClick() =
         safeLaunch {
-
+            db.deleteUserFromGroup("fTy2LLOcSXSWfFAPZ6Ae","5Ecdbry7qcyxE288d3bE")
         }
 }
