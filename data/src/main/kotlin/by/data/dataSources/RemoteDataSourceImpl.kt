@@ -30,4 +30,9 @@ internal class RemoteDataSourceImpl @Inject constructor(
             list.map { user -> userParser.pars(user) }
         }
 
+    override suspend fun createUser(user: User) = service.createUser(userParser.unPars(user))
+
+    override suspend fun addUserInGroup(groupID: String, userID: String) =
+        service.addUserInGroup(groupID, userID)
+
 }
