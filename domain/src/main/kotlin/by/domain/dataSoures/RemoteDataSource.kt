@@ -20,4 +20,8 @@ interface RemoteDataSource {
 
     suspend fun deleteUserFromGroup(groupID: String, userID: String)
 
+    suspend fun getProfilesFromGroup(groupID: String): Flow<List<Profile>>
+
+    suspend fun getProfileFromGroup(groupID: String, profileID: String): Flow<Profile>
+
 }

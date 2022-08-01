@@ -41,4 +41,16 @@ internal class RemoteDataSourceImpl @Inject constructor(
     override suspend fun deleteUserFromGroup(groupID: String, userID: String) =
         service.deleteUserFromGroup(groupID, userID)
 
+    override suspend fun getProfilesFromGroup(groupID: String): Flow<List<Profile>> =
+        service.getProfilesFromGroup(groupID).map { list ->
+            list.map { profile ->
+                profileParser.pars(profile)
+            }
+        }
+
+    override suspend fun getProfileFromGroup(groupID: String, profileID: String): Flow<Profile> =
+        service.getProfileFromGroup(groupID, profileID).map { profile ->
+            profileParser.pars(profile)
+        }
+
 }
