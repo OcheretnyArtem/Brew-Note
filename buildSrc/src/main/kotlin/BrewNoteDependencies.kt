@@ -54,6 +54,9 @@ object BrewNoteDependencies {
     //FireStore
     private const val fireStore = "com.google.firebase:firebase-firestore-ktx:${Versions.fireStore}"
 
+    //DataStore
+    private const val dataStore = "androidx.datastore:datastore-preferences:${Versions.dataStore}"
+
     fun coroutines(handler: DependencyHandler) = handler.apply {
         implementation(coroutines)
         implementation(coroutinesPlayServices)
@@ -105,5 +108,9 @@ object BrewNoteDependencies {
 
     fun fireStore(handler: DependencyHandler) = handler.apply {
         implementation(fireStore)
+    }
+
+    fun dataStore(handler: DependencyHandler) = handler.apply {
+        implementation(dataStore)
     }
 }
