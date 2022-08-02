@@ -8,5 +8,7 @@ Application for easy creation, storage and distribution of coffee profiles
  * Compose
  * Hilt
  * Room
+ * FireStore
+ * DataStore
 ---
 Development of the app takes place in the dev branch. Main branch - for the released version.
