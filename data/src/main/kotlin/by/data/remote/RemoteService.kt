@@ -1,5 +1,6 @@
 package by.data.remote
 
+import by.data.remote.entities.GroupRemote
 import by.data.remote.entities.ProfileRemote
 import by.data.remote.entities.UserRemote
 import kotlinx.coroutines.flow.Flow
@@ -16,6 +17,8 @@ internal interface RemoteService {
     suspend fun getUsersByIDs(iDs: List<String>): Flow<List<UserRemote>>
 
     suspend fun createUser(user: UserRemote)
+
+    suspend fun createGroup(group: GroupRemote)
 
     suspend fun addUserInGroup(groupID: String, userID: String)
 

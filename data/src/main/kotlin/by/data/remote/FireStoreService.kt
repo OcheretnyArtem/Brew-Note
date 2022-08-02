@@ -1,5 +1,6 @@
 package by.data.remote
 
+import by.data.remote.entities.GroupRemote
 import by.data.remote.entities.ProfileRemote
 import by.data.remote.entities.UserRemote
 import by.data.remote.utils.observeItemFromFireStore
@@ -35,10 +36,11 @@ internal class RemoteServiceImpl @Inject constructor(
             valueSearchQuery = name
         )
 
-    override suspend fun getProfilesFromGroup(groupID: String): Flow<List<ProfileRemote>> = observeItemsFromFireStore(
-        fireStore.collection(GROUPS).document(groupID).collection(PROFILES),
-        dispatchers.io
-    )
+    override suspend fun getProfilesFromGroup(groupID: String): Flow<List<ProfileRemote>> =
+        observeItemsFromFireStore(
+            fireStore.collection(GROUPS).document(groupID).collection(PROFILES),
+            dispatchers.io
+        )
 
     override suspend fun getProfileFromGroup(
         groupID: String,
@@ -66,16 +68,23 @@ internal class RemoteServiceImpl @Inject constructor(
         withContext(dispatchers.io) {
             fireStore.collection(GROUPS).document(groupID).collection(PROFILES)
                 .add(profile).addOnSuccessListener { profile ->
-                profile.update(ID,profile.id)
-            }
+                    profile.update(ID, profile.id)
+                }
         }
 
     override suspend fun deleteProfileFromGroup(groupID: String, profileID: String) {
-        fireStore.collection(GROUPS).document(groupID).collection(PROFILES).document(profileID).delete()
+        fireStore.collection(GROUPS).document(groupID).collection(PROFILES).document(profileID)
+            .delete()
     }
 
     override suspend fun createUser(user: UserRemote): Unit = withContext(dispatchers.io) {
         fireStore.collection(USERS).add(user).addOnSuccessListener {
+            it.update(ID, it.id)
+        }
+    }
+
+    override suspend fun createGroup(group: GroupRemote) {
+        fireStore.collection(GROUPS).add(group).addOnSuccessListener {
             it.update(ID, it.id)
         }
     }
