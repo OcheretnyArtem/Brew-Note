@@ -15,11 +15,11 @@ import by.data.parsres.remoteData.ParserGroupDomainRemote
 import by.data.parsres.remoteData.ParserInfusionDomainRemote
 import by.data.parsres.remoteData.ParserProfileDomainRemote
 import by.data.parsres.remoteData.ParserUserDomainRemote
-import by.data.remote.entities.CoffeeRemote
-import by.data.remote.entities.GroupRemote
-import by.data.remote.entities.InfusionRemote
-import by.data.remote.entities.ProfileRemote
-import by.data.remote.entities.UserRemote
+import by.data.remoteData.entities.CoffeeRemote
+import by.data.remoteData.entities.GroupRemote
+import by.data.remoteData.entities.InfusionRemote
+import by.data.remoteData.entities.ProfileRemote
+import by.data.remoteData.entities.UserRemote
 import by.domain.entities.Coffee
 import by.domain.entities.Group
 import by.domain.entities.Infusion

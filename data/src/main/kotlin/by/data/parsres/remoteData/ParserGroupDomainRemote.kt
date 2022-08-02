@@ -1,8 +1,8 @@
 package by.data.parsres.remoteData
 
 import by.data.parsres.Parser
-import by.data.remote.entities.GroupRemote
-import by.data.remote.entities.ProfileRemote
+import by.data.remoteData.entities.GroupRemote
+import by.data.remoteData.entities.ProfileRemote
 import by.domain.entities.Group
 import by.domain.entities.Profile
 import javax.inject.Inject

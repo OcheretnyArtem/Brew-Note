@@ -1,4 +1,4 @@
-package by.data.remote.utils
+package by.data.remoteData.utils
 
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference

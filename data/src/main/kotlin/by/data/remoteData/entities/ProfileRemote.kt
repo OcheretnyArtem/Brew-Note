@@ -1,6 +1,6 @@
-package by.data.remote.entities
+package by.data.remoteData.entities
 
-import by.data.remote.utils.RemoteData
+import by.data.remoteData.utils.RemoteData
 
 internal data class ProfileRemote(
     var id: String? = null,
