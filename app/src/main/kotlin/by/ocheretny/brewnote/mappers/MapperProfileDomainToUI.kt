@@ -15,7 +15,7 @@ internal class MapperProfileDomainToUI @Inject constructor(
 ) : Mapper<Profile, ProfileUI> {
 
     override fun map(from: Profile): ProfileUI = ProfileUI(
-        id = from.id,
+        id = from.localId,
         coffee = mapperCoffeeDomainToUI.map(from.coffee),
         infusions = from.infusions.map { infusion -> mapperInfusionDomainToUI.map(infusion) },
         device = from.device,

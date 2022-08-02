@@ -1,7 +1,8 @@
 package by.domain.entities
 
 data class Profile(
-    var id: Int? = null,
+    var localId: Int? = null,
+    var remoteId: String? = null,
     val coffee: Coffee,
     val infusions: List<Infusion> = emptyList(),
     val device: String,

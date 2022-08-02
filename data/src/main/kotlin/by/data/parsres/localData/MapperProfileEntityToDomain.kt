@@ -16,7 +16,7 @@ internal class MapperProfileEntityToDomain @Inject constructor(
 ) : Mapper<ProfileWithCoffeeAndInfusions, Profile> {
 
     override fun map(from: ProfileWithCoffeeAndInfusions): Profile = Profile(
-        id = from.profile.id,
+        localId = from.profile.id,
         coffee = mapperCoffeeEntityToDomain.pars(from.coffee),
         infusions = from.infusions.map { mapperInfusionEntityToDomain.pars(it) },
         device = from.profile.device,
