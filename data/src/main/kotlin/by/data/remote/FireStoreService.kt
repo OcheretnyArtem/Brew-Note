@@ -83,9 +83,10 @@ internal class RemoteServiceImpl @Inject constructor(
         }
     }
 
-    override suspend fun createGroup(group: GroupRemote) {
+    override suspend fun createGroup(userID: String, group: GroupRemote) : Unit = withContext(dispatchers.io) {
         fireStore.collection(GROUPS).add(group).addOnSuccessListener {
             it.update(ID, it.id)
+            it.update(USER_IDS, FieldValue.arrayUnion(userID))
         }
     }
 

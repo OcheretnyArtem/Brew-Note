@@ -12,13 +12,13 @@ internal interface RemoteService {
 
     suspend fun postProfileInGroup(groupID: String, profile: ProfileRemote)
 
-    suspend fun  deleteProfileFromGroup(groupID: String,  profileID: String)
+    suspend fun deleteProfileFromGroup(groupID: String, profileID: String)
 
     suspend fun getUsersByIDs(iDs: List<String>): Flow<List<UserRemote>>
 
     suspend fun createUser(user: UserRemote)
 
-    suspend fun createGroup(group: GroupRemote)
+    suspend fun createGroup(userID: String, group: GroupRemote)
 
     suspend fun addUserInGroup(groupID: String, userID: String)
 
