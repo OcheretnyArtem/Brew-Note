@@ -1,6 +1,6 @@
 package by.data.parsres.localData
 
-import by.data.database.entity.InfusionEntity
+import by.data.localData.database.entity.InfusionEntity
 import by.data.parsres.Parser
 import by.domain.entities.Infusion
 import javax.inject.Inject

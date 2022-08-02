@@ -1,4 +1,4 @@
-package by.data.database.dao
+package by.data.localData.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -6,14 +6,13 @@ import androidx.room.Delete
 import androidx.room.Transaction
 import androidx.room.Query
 import androidx.room.Update
-import by.data.database.entity.CoffeeEntity
-import by.data.database.entity.InfusionEntity
-import by.data.database.entity.ProfileEntity
-import by.data.database.relations.CoffeeWithProfiles
-import by.data.database.relations.ProfileWithCoffeeAndInfusions
+import by.data.localData.database.entity.CoffeeEntity
+import by.data.localData.database.entity.InfusionEntity
+import by.data.localData.database.entity.ProfileEntity
+import by.data.localData.database.relations.CoffeeWithProfiles
+import by.data.localData.database.relations.ProfileWithCoffeeAndInfusions
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 
 @InternalCoroutinesApi
 @Dao

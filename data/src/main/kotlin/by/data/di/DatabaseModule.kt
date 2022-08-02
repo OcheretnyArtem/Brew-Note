@@ -1,8 +1,8 @@
 package by.data.di
 
 import android.content.Context
-import by.data.database.BrewNoteDatabase
-import by.data.database.dao.BrewNoteDao
+import by.data.localData.database.BrewNoteDatabase
+import by.data.localData.database.dao.BrewNoteDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

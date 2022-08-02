@@ -1,6 +1,6 @@
 package by.data.parsres.localData
 
-import by.data.database.entity.ProfileEntity
+import by.data.localData.database.entity.ProfileEntity
 import by.data.parsres.Mapper
 import by.domain.entities.Profile
 import javax.inject.Inject

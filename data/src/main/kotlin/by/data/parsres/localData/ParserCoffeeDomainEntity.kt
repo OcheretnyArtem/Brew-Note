@@ -1,6 +1,6 @@
 package by.data.parsres.localData
 
-import by.data.database.entity.CoffeeEntity
+import by.data.localData.database.entity.CoffeeEntity
 import by.data.parsres.Parser
 import by.domain.entities.Coffee
 import javax.inject.Inject

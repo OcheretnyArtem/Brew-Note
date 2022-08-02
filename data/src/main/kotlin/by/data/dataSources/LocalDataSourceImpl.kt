@@ -1,10 +1,10 @@
 package by.data.dataSources
 
-import by.data.database.dao.BrewNoteDao
-import by.data.database.entity.CoffeeEntity
-import by.data.database.entity.InfusionEntity
-import by.data.database.entity.ProfileEntity
-import by.data.database.relations.ProfileWithCoffeeAndInfusions
+import by.data.localData.database.dao.BrewNoteDao
+import by.data.localData.database.entity.CoffeeEntity
+import by.data.localData.database.entity.InfusionEntity
+import by.data.localData.database.entity.ProfileEntity
+import by.data.localData.database.relations.ProfileWithCoffeeAndInfusions
 import by.data.parsres.Mapper
 import by.data.parsres.Parser
 import by.domain.coroutines.DispatcherProvider

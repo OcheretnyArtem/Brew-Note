@@ -1,13 +1,13 @@
-package by.data.database
+package by.data.localData.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import by.data.database.dao.BrewNoteDao
-import by.data.database.entity.CoffeeEntity
-import by.data.database.entity.InfusionEntity
-import by.data.database.entity.ProfileEntity
+import by.data.localData.database.dao.BrewNoteDao
+import by.data.localData.database.entity.CoffeeEntity
+import by.data.localData.database.entity.InfusionEntity
+import by.data.localData.database.entity.ProfileEntity
 import kotlinx.coroutines.InternalCoroutinesApi
 
 @InternalCoroutinesApi
