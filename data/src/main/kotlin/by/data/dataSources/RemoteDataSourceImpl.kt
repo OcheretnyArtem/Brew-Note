@@ -1,9 +1,9 @@
 package by.data.dataSources
 
 import by.data.parsres.Parser
-import by.data.remote.RemoteService
-import by.data.remote.entities.ProfileRemote
-import by.data.remote.entities.UserRemote
+import by.data.remoteData.RemoteService
+import by.data.remoteData.entities.ProfileRemote
+import by.data.remoteData.entities.UserRemote
 import by.domain.dataSoures.RemoteDataSource
 import by.domain.entities.Profile
 import by.domain.entities.User

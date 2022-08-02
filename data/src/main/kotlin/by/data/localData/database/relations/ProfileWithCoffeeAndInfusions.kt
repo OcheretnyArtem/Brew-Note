@@ -1,10 +1,10 @@
-package by.data.database.relations
+package by.data.localData.database.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import by.data.database.entity.CoffeeEntity
-import by.data.database.entity.InfusionEntity
-import by.data.database.entity.ProfileEntity
+import by.data.localData.database.entity.CoffeeEntity
+import by.data.localData.database.entity.InfusionEntity
+import by.data.localData.database.entity.ProfileEntity
 
 internal data class ProfileWithCoffeeAndInfusions(
     @Embedded val profile: ProfileEntity,

@@ -1,8 +1,8 @@
-package by.data.remote
+package by.data.remoteData
 
-import by.data.remote.entities.GroupRemote
-import by.data.remote.entities.ProfileRemote
-import by.data.remote.entities.UserRemote
+import by.data.remoteData.entities.GroupRemote
+import by.data.remoteData.entities.ProfileRemote
+import by.data.remoteData.entities.UserRemote
 import kotlinx.coroutines.flow.Flow
 
 

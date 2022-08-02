@@ -1,7 +1,7 @@
 package by.data.parsres.remoteData
 
 import by.data.parsres.Parser
-import by.data.remote.entities.CoffeeRemote
+import by.data.remoteData.entities.CoffeeRemote
 import by.domain.entities.Coffee
 import javax.inject.Inject
 

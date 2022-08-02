@@ -1,7 +1,7 @@
 package by.data.di
 
-import by.data.remote.RemoteService
-import by.data.remote.RemoteServiceImpl
+import by.data.remoteData.RemoteService
+import by.data.remoteData.RemoteServiceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

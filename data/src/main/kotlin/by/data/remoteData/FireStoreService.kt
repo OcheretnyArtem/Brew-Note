@@ -1,10 +1,10 @@
-package by.data.remote
+package by.data.remoteData
 
-import by.data.remote.entities.GroupRemote
-import by.data.remote.entities.ProfileRemote
-import by.data.remote.entities.UserRemote
-import by.data.remote.utils.observeItemFromFireStore
-import by.data.remote.utils.observeItemsFromFireStore
+import by.data.remoteData.entities.GroupRemote
+import by.data.remoteData.entities.ProfileRemote
+import by.data.remoteData.entities.UserRemote
+import by.data.remoteData.utils.observeItemFromFireStore
+import by.data.remoteData.utils.observeItemsFromFireStore
 import by.domain.coroutines.DispatcherProvider
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore

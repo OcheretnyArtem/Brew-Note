@@ -1,9 +1,9 @@
 package by.data.parsres.remoteData
 
 import by.data.parsres.Parser
-import by.data.remote.entities.CoffeeRemote
-import by.data.remote.entities.InfusionRemote
-import by.data.remote.entities.ProfileRemote
+import by.data.remoteData.entities.CoffeeRemote
+import by.data.remoteData.entities.InfusionRemote
+import by.data.remoteData.entities.ProfileRemote
 import by.domain.entities.Coffee
 import by.domain.entities.Infusion
 import by.domain.entities.Profile
