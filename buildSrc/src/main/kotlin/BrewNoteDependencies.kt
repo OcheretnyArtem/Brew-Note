@@ -57,6 +57,9 @@ object BrewNoteDependencies {
     //DataStore
     private const val dataStore = "androidx.datastore:datastore-preferences:${Versions.dataStore}"
 
+    //Authentication
+    private const val authentication = "com.google.android.gms:play-services-auth:${Versions.authentication}"
+
     fun coroutines(handler: DependencyHandler) = handler.apply {
         implementation(coroutines)
         implementation(coroutinesPlayServices)
@@ -112,5 +115,9 @@ object BrewNoteDependencies {
 
     fun dataStore(handler: DependencyHandler) = handler.apply {
         implementation(dataStore)
+    }
+
+    fun authentication(handler: DependencyHandler) = handler.apply {
+        implementation(authentication)
     }
 }

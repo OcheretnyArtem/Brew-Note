@@ -15,4 +15,5 @@ internal object Versions {
     const val espressoCore = "3.4.0"
     const val fireStore = "24.2.1"
     const val dataStore = "1.0.0"
+    const val authentication = "20.2.0"
 }
