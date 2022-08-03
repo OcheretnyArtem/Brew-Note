@@ -71,6 +71,7 @@ dependencies {
     BrewNoteDependencies.coroutines(this)
     BrewNoteDependencies.timber(this)
     BrewNoteDependencies.tests(this)
+    BrewNoteDependencies.authentication(this)
 
     BrewNoteModules.domain(this)
     BrewNoteModules.data(this)
