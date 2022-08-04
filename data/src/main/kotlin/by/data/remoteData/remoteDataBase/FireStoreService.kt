@@ -1,8 +1,8 @@
-package by.data.remoteData
+package by.data.remoteData.remoteDataBase
 
-import by.data.remoteData.entities.GroupRemote
-import by.data.remoteData.entities.ProfileRemote
-import by.data.remoteData.entities.UserRemote
+import by.data.remoteData.remoteDataBase.entities.GroupRemote
+import by.data.remoteData.remoteDataBase.entities.ProfileRemote
+import by.data.remoteData.remoteDataBase.entities.UserRemote
 import by.data.remoteData.utils.observeItemFromFireStore
 import by.data.remoteData.utils.observeItemsFromFireStore
 import by.domain.coroutines.DispatcherProvider
@@ -77,10 +77,8 @@ internal class RemoteServiceImpl @Inject constructor(
             .delete()
     }
 
-    override suspend fun createUser(user: UserRemote): Unit = withContext(dispatchers.io) {
-        fireStore.collection(USERS).add(user).addOnSuccessListener {
-            it.update(ID, it.id)
-        }
+    override suspend fun createUser(user: UserRemote, userID: String): Unit = withContext(dispatchers.io) {
+        fireStore.collection(USERS).document(userID).set(user)
     }
 
     override suspend fun createGroup(userID: String, group: GroupRemote) : Unit = withContext(dispatchers.io) {

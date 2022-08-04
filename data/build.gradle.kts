@@ -38,6 +38,7 @@ dependencies {
     BrewNoteDependencies.room(this)
     BrewNoteDependencies.fireStore(this)
     BrewNoteDependencies.dataStore(this)
+    BrewNoteDependencies.authentication(this)
 
     BrewNoteModules.domain(this)
 }
