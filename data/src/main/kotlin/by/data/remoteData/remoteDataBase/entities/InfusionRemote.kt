@@ -1,4 +1,4 @@
-package by.data.remoteData.entities
+package by.data.remoteData.remoteDataBase.entities
 
 import by.data.remoteData.utils.RemoteData
 

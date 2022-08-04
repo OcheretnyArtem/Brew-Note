@@ -4,6 +4,8 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 internal fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =
     add("implementation", dependencyNotation)
 
+internal fun platform(dependency: String): String = "platform($dependency)"
+
 internal fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
     add("kapt", dependencyNotation)
 
