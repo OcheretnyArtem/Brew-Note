@@ -1,5 +1,6 @@
 package by.data.dataSources
 
+import by.data.di.USER_UID
 import by.data.parsres.Parser
 import by.data.remoteData.remoteDataBase.RemoteService
 import by.data.remoteData.remoteDataBase.entities.ProfileRemote
@@ -10,11 +11,13 @@ import by.domain.entities.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
+import javax.inject.Named
 
 internal class RemoteDataSourceImpl @Inject constructor(
     private val userParser: Parser<User, UserRemote>,
     private val profileParser: Parser<Profile, ProfileRemote>,
     private val service: RemoteService,
+    @Named(USER_UID) private val uid: String?,
 ) : RemoteDataSource {
 
     override suspend fun getUsersByName(name: String): Flow<List<User>> =
@@ -33,7 +36,9 @@ internal class RemoteDataSourceImpl @Inject constructor(
             list.map { user -> userParser.pars(user) }
         }
 
-    override suspend fun createUser(user: User) = service.createUser(userParser.unPars(user))
+    override suspend fun createUser(user: User) {
+        uid?.let { service.createUser(userParser.unPars(user), it) }
+    }
 
     override suspend fun addUserInGroup(groupID: String, userID: String) =
         service.addUserInGroup(groupID, userID)
